@@ -1,6 +1,8 @@
 package com.dlq.config;
 
 import com.dlq.bean.Person;
+import com.dlq.condition.LinuxCondition;
+import com.dlq.condition.WindowsCondition;
 import org.springframework.context.annotation.*;
 
 /**
@@ -9,7 +11,8 @@ import org.springframework.context.annotation.*;
  *@author: Hasee
  *@create: 2020-09-23 14:42
  */
-
+//类中组件统一设置。满足当前条件，这个类中配置的所有bean注册才能生效；
+@Conditional({WindowsCondition.class})
 @Configuration
 public class MainConfig2 {
 
@@ -40,6 +43,19 @@ public class MainConfig2 {
     }
 
     /**
-     * @Conditional：按照一定条件进行判断，满足条件给容器中注册Bean
+     * @Conditional({Condition})：按照一定条件进行判断，满足条件给容器中注册Bean
+     *
+     * 如果系统是windows，给容器中注册("bill")
+     * 如果是linux系统，给容器中注册("linus")
      */
+    @Bean("bill")
+    public Person person01(){
+        return new Person("Bill Gates" ,62);
+    }
+
+    @Conditional({LinuxCondition.class})
+    @Bean("linus")
+    public Person person02(){
+        return new Person("linus",49);
+    }
 }
