@@ -4,6 +4,7 @@ import com.dlq.bean.Color;
 import com.dlq.bean.Person;
 import com.dlq.bean.Red;
 import com.dlq.condition.LinuxCondition;
+import com.dlq.condition.MyImportSelector;
 import com.dlq.condition.WindowsCondition;
 import org.springframework.context.annotation.*;
 
@@ -16,7 +17,7 @@ import org.springframework.context.annotation.*;
 //类中组件统一设置。满足当前条件，这个类中配置的所有bean注册才能生效；
 @Conditional({WindowsCondition.class})
 @Configuration
-@Import({Color.class, Red.class})
+@Import({Color.class, Red.class, MyImportSelector.class})
 public class MainConfig2 {
 
     /**

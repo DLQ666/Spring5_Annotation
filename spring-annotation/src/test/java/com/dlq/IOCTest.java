@@ -1,5 +1,6 @@
 package com.dlq;
 
+import com.dlq.bean.Blue;
 import com.dlq.bean.Person;
 import com.dlq.config.MainConfig;
 import com.dlq.config.MainConfig2;
@@ -66,5 +67,7 @@ public class IOCTest {
     @Test
     public void testImport() {
         printBeans(applicationContext);
+        Blue bean = applicationContext.getBean(Blue.class);
+        System.out.println(bean);
     }
 }
