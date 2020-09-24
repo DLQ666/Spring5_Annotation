@@ -1,6 +1,7 @@
 package com.dlq.config;
 
 import com.dlq.bean.Color;
+import com.dlq.bean.ColorFactoryBean;
 import com.dlq.bean.Person;
 import com.dlq.bean.Red;
 import com.dlq.condition.LinuxCondition;
@@ -77,4 +78,8 @@ public class MainConfig2 {
      * 		2）、要获取工厂Bean本身，我们需要给id前面加一个&
      * 			&colorFactoryBean
      */
+    @Bean
+    public ColorFactoryBean colorFactoryBean(){
+        return new ColorFactoryBean();
+    }
 }

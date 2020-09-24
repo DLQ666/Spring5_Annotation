@@ -1,6 +1,7 @@
 package com.dlq;
 
 import com.dlq.bean.Blue;
+import com.dlq.bean.ColorFactoryBean;
 import com.dlq.bean.Person;
 import com.dlq.config.MainConfig;
 import com.dlq.config.MainConfig2;
@@ -69,5 +70,14 @@ public class IOCTest {
         printBeans(applicationContext);
         Blue bean = applicationContext.getBean(Blue.class);
         System.out.println(bean);
+
+        //工厂Bean获取的是调用getObject创建的对象
+        Object bean1 = applicationContext.getBean("colorFactoryBean");
+        Object bean2 = applicationContext.getBean("colorFactoryBean");
+        System.out.println("bean的类型："+bean1.getClass());
+        System.out.println(bean1 == bean2);
+        //要获取工厂Bean本身，我们需要给id前面加一个&
+        Object bean4 = applicationContext.getBean("&colorFactoryBean");
+        System.out.println(bean4.getClass());
     }
 }
