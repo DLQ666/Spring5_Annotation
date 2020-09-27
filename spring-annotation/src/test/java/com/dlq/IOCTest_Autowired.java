@@ -6,6 +6,7 @@ import com.dlq.bean.Color;
 import com.dlq.config.MyConfigAutowired;
 import com.dlq.service.BookService;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
@@ -19,7 +20,7 @@ public class IOCTest_Autowired {
     @Test
     public void test01() {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MyConfigAutowired.class);
-        BookService bookService = applicationContext.getBean(BookService.class);
+        /*BookService bookService = applicationContext.getBean(BookService.class);
         System.out.println(bookService);
 
         //BookDao bookDao = applicationContext.getBean(BookDao.class);
@@ -32,7 +33,9 @@ public class IOCTest_Autowired {
         System.out.println(car);
 
         Color color = applicationContext.getBean(Color.class);
-        System.out.println(color);
+        System.out.println(color);*/
+
+        System.out.println(applicationContext);
         applicationContext.close();
     }
 }

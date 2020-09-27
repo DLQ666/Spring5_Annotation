@@ -1,5 +1,8 @@
 package com.dlq.bean;
 
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -13,7 +16,7 @@ import javax.annotation.PreDestroy;
  */
 
 @Component
-public class Dog {
+public class Dog implements ApplicationContextAware {
 
     public Dog(){
         System.out.println("dog... constructor ...");
@@ -29,5 +32,10 @@ public class Dog {
     @PreDestroy
     public void destory(){
         System.out.println("dog ... @PreDestroy ...");
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+
     }
 }
