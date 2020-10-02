@@ -7,4 +7,16 @@ package com.dlq.bean;
  *@create: 2020-09-24 16:06
  */
 public class Blue {
+
+    public Blue(){
+        System.out.println("blue...constructor");
+    }
+
+    public void init(){
+        System.out.println("blue...init...");
+    }
+
+    public void destory(){
+        System.out.println("blue...destory...");
+    }
 }
